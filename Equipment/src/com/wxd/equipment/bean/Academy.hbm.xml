@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.wxd.equipment.bean.Academy" table="academy">
+		<id name="aid">
+			<generator class="native"></generator>
+		</id>
+		<property name="aname" />
+		<!-- 学院与班级关联 -->
+		<set name="cset">
+			<key column="aid"></key>
+			<one-to-many class="com.wxd.equipment.bean.ClassInfo" />
+		</set>
+		<set name="eset">
+			<key column="aid"></key>
+			<one-to-many class="com.wxd.equipment.bean.EquipmentInfo" />
+		</set>
+	</class>
+</hibernate-mapping>

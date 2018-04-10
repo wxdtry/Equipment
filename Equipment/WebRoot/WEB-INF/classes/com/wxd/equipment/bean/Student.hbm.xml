@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- private String sid;// 学号 private String name;// 姓名 private String password;// 
+	密码 private int cid;// 班级 private int aid;// 学院 -->
+<hibernate-mapping>
+	<class name="com.wxd.equipment.bean.Student" table="student">
+		<id name="sid"></id>
+		<property name="name"></property>
+		<property name="password"></property>
+		<many-to-one name="classInfo" lazy="false"
+			class="com.wxd.equipment.bean.ClassInfo" column="cid" />
+		<set name="uset">
+			<key column="sid"></key>
+			<one-to-many class="com.wxd.equipment.bean.UseRecord" />
+		</set>
+	</class>
+</hibernate-mapping>

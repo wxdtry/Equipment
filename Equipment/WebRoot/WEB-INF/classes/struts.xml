@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="equipments" extends="struts-default" namespace="/">
+		<!-- <interceptors> <interceptor name="privilegeInterceptor" class="com.wxd.equipment.interceptor.PrivilegeInterceptor" 
+			/> </interceptors> -->
+
+
+		<!-- 学生Action -->
+		<action name="student_*" class="studentAction" method="{1}">
+			<result name="login">/WEB-INF/jsp/login.jsp</result>
+			<result name="loginSuccess">/WEB-INF/jsp/myrecord.jsp</result>
+			<result name="exit">/WEB-INF/jsp/login.jsp</result>
+
+			<!-- <result name="loginSuccess" type="redirectAction">index</result> -->
+		</action>
+		<!-- 验证码Action -->
+		<action name="checkImg" class="checkImgAction"></action>
+
+		<action name="useRecord_*" class="useRecordAction" method="{1}">
+			<result name="addRecord" type="redirectAction">useRecord_getMyRecord.action?page=1
+			</result>
+			<result name="getMyRecord">/WEB-INF/jsp/recordlist.jsp</result>
+			<result name="addRecordPage">/WEB-INF/jsp/myrecord.jsp</result>
+		</action>
+		<action name="equipment_*" class="equipmentInfoAction" method="{1}">
+		</action>
+	</package>
+</struts>
+
+
+

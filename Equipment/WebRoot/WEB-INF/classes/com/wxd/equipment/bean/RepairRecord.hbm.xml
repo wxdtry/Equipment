@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- private int rid;// 维修记录ID private String reason;// 维修原因 private Date 
+	rdate;// 维修时间 private String person; // 维修人 private int eid;// 维修仪器ID -->
+<hibernate-mapping>
+	<class name="com.wxd.equipment.bean.RepairRecord" table="repairrecord">
+		<id name="rid">
+			<generator class="native"></generator>
+		</id>
+		<property name="reason" />
+		<property name="rdate" />
+		<property name="person" />
+		<many-to-one name="equipmentInfo" lazy="false"
+			class="com.wxd.equipment.bean.EquipmentInfo" column="eid"></many-to-one>
+	</class>
+</hibernate-mapping>

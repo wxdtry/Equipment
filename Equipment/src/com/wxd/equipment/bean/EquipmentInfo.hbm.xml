@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!-- private int eid;// 实验仪器ID private String ename;// 实验仪器名称 private Date 
+	buydate;// 买入时间 private String site;// 仪器所在地点 private int status; // 仪器状态 
+	0表示停用 1表示正常 private int aid;// 所在学院的ID -->
+<hibernate-mapping>
+	<class name="com.wxd.equipment.bean.EquipmentInfo" table="equipmentinfo">
+		<id name="eid"></id>
+		<property name="ename" />
+		<property name="buydate" />
+		<property name="site" />
+		<property name="status" />
+		<!-- 实验仪器与学院关系 -->
+		<many-to-one name="academy" lazy="false"
+			class="com.wxd.equipment.bean.Academy" column="aid"></many-to-one>
+		<!-- 实验仪器与使用记录关系 -->
+		<set name="uset">
+			<key column="eid"></key>
+			<one-to-many class="com.wxd.equipment.bean.UseRecord" />
+		</set>
+		<!-- 实验仪器与维修记录关系 -->
+		<set name="rset">
+			<key column="eid"></key>
+			<one-to-many class="com.wxd.equipment.bean.RepairRecord" />
+		</set>
+	</class>
+</hibernate-mapping>

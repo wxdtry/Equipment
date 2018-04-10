@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.wxd.equipment.bean.ClassInfo" table="classinfo">
+		<id name="cid">
+			<generator class="native"></generator>
+		</id>
+		<property name="cname" />
+		<many-to-one name="academy" lazy="false"
+			class="com.wxd.equipment.bean.Academy" column="aid"></many-to-one>
+		<set name="sset">
+			<key column="cid"></key>
+			<one-to-many class="com.wxd.equipment.bean.Student" />
+		</set>
+	</class>
+</hibernate-mapping>

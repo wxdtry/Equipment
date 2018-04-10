@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!-- private int aid;// 管理员ID private String aname;// 管理员用户名 private String 
+	name;// 管理员姓名 private String password;// 密码 private String email;// 邮箱 -->
+<hibernate-mapping>
+	<class name="com.wxd.equipment.bean.Admin" table="admin">
+		<id name="aid">
+			<generator class="native"></generator>
+		</id>
+		<property name="aname" />
+		<property name="name" />
+		<property name="password" />
+		<property name="email" />
+	</class>
+</hibernate-mapping>

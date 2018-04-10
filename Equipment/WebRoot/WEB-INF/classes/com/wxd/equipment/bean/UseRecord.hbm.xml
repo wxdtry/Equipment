@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- private int uid;// 记录ID private Date start;// 开始时间 private Date end;// 
+	结束时间 private int status;// 仪器运行情况 private String description;// 如果不正常具体描述 
+	private int eid;// 仪器ID private String sid;// 使用人ID -->
+<hibernate-mapping>
+	<class name="com.wxd.equipment.bean.UseRecord" table="userecord">
+		<id name="uid">
+			<generator class="native"></generator>
+		</id>
+		<property name="start" />
+		<property name="end" />
+		<property name="status">
+			<column name="status" default="1"></column>
+		</property>
+		<property name="description" />
+		<many-to-one name="equipmentInfo" lazy="false"
+			class="com.wxd.equipment.bean.EquipmentInfo" column="eid" />
+		<many-to-one name="student" lazy="false"
+			class="com.wxd.equipment.bean.Student" column="sid"></many-to-one>
+	</class>
+</hibernate-mapping>
